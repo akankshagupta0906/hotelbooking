@@ -1,0 +1,38 @@
+{% extends 'image.html'%}
+
+
+
+{% block 'nav'%}
+<nav>
+    <div class="logo"><h1 class="animate__animated animate__infinite animate__heartBeat ">HOTEL Booking</h1></div>
+    <div class="menu">
+      <a href="/manager/home/">Home</a>
+      
+      <a href="/manager/booling/">Booking</a>
+      <a href="/user/hotel/"  data-toggle="modal" data-target="#login">Hotel</a>
+      
+      <a href="logout">Logout</a>
+    </div>
+  </nav>
+{% endblock %}
+
+
+{% block 'form'%}
+<div class="form-group">
+          
+    <div id="form" style="height:auto;"> 
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %} 
+            <div>
+            <input required class="file" type="text" placeholder="add 360 degree images" name="link" style="margin-left:170px;" >
+            
+            <input class="file2" type="submit" value="ADD">    `
+            </div>
+            
+             
+        </form> 
+    </div>
+
+</div>
+
+{% endblock %}

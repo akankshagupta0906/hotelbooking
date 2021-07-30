@@ -1,0 +1,237 @@
+{% load staticfiles%}
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">  
+    <title>delete hotel</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: url("{%static 'beck.jpg' %}") no-repeat;
+            background-size: cover;
+        
+        }
+        nav{
+        width: 100%;
+        height:15vh;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-transform: uppercase;
+      }
+      .logo{
+        width: 25%;
+        text-align: center;
+      }
+      .menu{
+        width: 40%;
+        display: flex;
+        justify-content: space-around;
+        margin: 15px;
+      }
+      .menu a{
+        text-decoration: none;
+        color: white;
+        font-weight:bolder;
+      }
+      .menu a:hover{
+        color: rgb(166, 166, 197);
+        transform:scale(1.4);
+      }
+      
+        
+        #form{
+            background: rgb(233, 196, 127);
+            height:10vh;
+            width: 100%;
+            margin-top:50px;
+            opacity: 0.8;
+            border-top: 1px solid white;
+			border-radius: 20px;
+			box-shadow: 15px 19px 25px black;    
+        }
+        
+        input{
+            display: block;
+            align-items: center;
+            justify-content: center;
+            margin-left:10px;
+            margin-top: 15px;
+            border-top: 1px solid white;
+			border-radius: 20px;
+			box-shadow:2px 5px 9px black; 
+            border-color: transparent;
+   
+        }
+        select{
+            margin-left:40px;
+            margin-top:15px;
+            border-top: 1px solid white;
+			border-radius: 20px;
+			box-shadow: 2px 5px 9px black; 
+            border-color: transparent;
+            padding-left: 3px; 
+            width:150px;
+        }
+        button{
+            margin-left: 20px;
+            margin-top: 15px; 
+            border-top: 1px solid white;
+			border-radius: 20px;
+			box-shadow: 2px 5px 9px black;
+            border-color: transparent;     
+        }
+        .CARD{
+            height:170px;
+            width:170px;
+            margin-left: 10px;
+            margin-top: 5px;
+            border-top: 1px solid white;
+			border-radius:10px;
+			box-shadow: 2px 5px 9px black;
+            border-color: transparent;   
+            
+        }
+        .size{
+            height: 180px;
+            width: 100%;
+            background-color: rgb(228, 163, 163);
+            display: inline-flex;
+            border-top: 1px solid white;
+			border-radius: 20px;
+			box-shadow: 25px 29px 35px black;
+            border-color: transparent; 
+             
+            
+        }
+        ul{
+            
+            justify-content:initial;
+            position: absolute;
+            margin-top: -150px;
+            margin-left: 230px; 
+            list-style: none;  
+        }
+        ul li{
+            margin-top:10px;
+            color: black;
+        }
+        .more{
+            margin-left:1000px;
+            margin-top: -60px;
+            position: absolute;
+            width: 7%;
+            border-top: 1px solid white;
+			border-radius: 20px;
+			box-shadow: 2px 5px 9px black;
+            border-color: transparent;   
+           ;
+        }
+        
+        .more3{
+            margin-left:900px;
+            margin-top: -110px;
+            position: relative;
+            width: 7%;
+            border-top: 1px solid white;
+			border-radius: 20px;
+			box-shadow: 2px 5px 9px black;
+            border-color: transparent;   
+        }
+        .fa{
+            color: green;
+            font-size:35px;
+            float: left;
+            
+              
+        }
+        h6{
+            margin-left:40px;
+            margin-top: 5px;
+            
+           
+        }
+        
+       
+    </style>
+</head>
+<body>
+    
+    
+    <div class='container'>
+        
+        <header>
+            <nav>
+                <div class="logo"><h1>HOTELS</h1></div>
+                <div class="menu">
+                  <a href="/superiser/home/">Home</a>
+                  <a href="#" data-toggle="modal" data-target="#contect">Contact</a>
+                  <a href="/superuser/booking/">Booking</a>
+                  <a href="/superuser/del_hotel/">Hotel</a>
+                  
+                </div>
+              </nav>
+            
+        </header>
+        
+        
+        <div class="form-group">
+          
+            <div id="form"> 
+                <form method='POST' class="form-inline my-2 my-lg-0">
+                    {% csrf_token %}
+                   <input type="search" placeholder="enter name" name="search">
+                   <input type="submit" value="search" class="btn btn-info">
+                    <div>
+                        
+                </form> 
+            </div>
+        </div>
+       
+        <div>
+            {%for j in hot%}
+            <div class="card mb-3 size">
+                <a href="{%url 'user:details' id=j.id%}">
+                    <img class="card-img-top CARD" src="{{j.hotel_image.url}}"alt="Card image cap">
+                <ul>
+                  
+                      <li>{{j.hotel_name}}</li>
+                      <li>price: {{j.price}}</li>
+                      <li>{{j.address}}</li>
+                      {%for k in j.cat.cat_name%}                     
+                      <li><i class="fa fa-star"></i></li>
+                      {% endfor %}
+                      
+                    </ul> 
+                </a>
+                
+              </div>
+
+              <div>
+                
+                <a href="{% url 'user:details' id=j.id%}" class="btn btn-primary more">Details</a>
+                <a href="{% url 'superuser:delhotel' id=j.id%}" class="btn btn-danger more3">Delete</a>
+                                
+                                
+            </div>
+            {% endfor %}
+            
+               
+               
+                
+            
+        </div> 
+       
+                
+    </div>
+      
+</body>
+</html>

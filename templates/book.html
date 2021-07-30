@@ -1,0 +1,53 @@
+{% extends 'booked.html'%}
+{% block 'manu'%}
+<div class="manu"> 
+    <div class="logo"><h1 class="animate__animated animate__infinite animate__heartBeat ">HOTEL Booking</h1></div>
+ 
+    <ul>
+        <li class="active"><a href="/user/home/"><i class="fa fa-home"></i>Home</a></li>
+         <li><a href="/user/all_booking/"><i class="fa fa-home">Booking</i></a>
+          
+        
+        
+        </li>
+        
+        <li><a href="/profile/"><i class="fa  fa-users"></i>Profile</a></li>
+  
+        
+        <li><a href="/logout/"><i class="fa fa-power-off"></i>Logout</a></li>
+    </ul>
+  </div>
+{% endblock%}
+
+{% block 'contain'%}
+<div class='container'>
+    {% for i in book %}
+    <div class="item">
+       
+        <div class="card-group">
+         <div class="card card">
+           
+           <div class="card-body body ">
+             
+             <h2 class="card-text">Booking id:- {{i.booking_id}}</h2>
+             <h2 class="card-text">Name:- {{i.user.user.first_name}} {{i.user.user.last_name}}</h2>
+             <h3 class="card-text">Hotel Name:- {{i.hotel.hotel_name}}</h3>
+             <h3 class="card-text">City:- {{i.city.cityname}}</h3>
+             <h3 class="card-text">Total:- {{i.total_amt}}</h3>
+             <h3 class="card-text">Payment:- Not paid</h3>
+             <h3 class="card-text">Check-in-date:- {{i.start_day}}</h3>
+             <h3 class="card-text">Check-out-date:- {{i.end_day}}</h3>
+             <h3 class="card-text">Rooms:- {{i.roomqty}}</h3>
+             <h3 class="card-text">Guests:- {{i.guests}}</h3>
+             <button><a href="{% url 'user:cancel' id=i.id %}">Cancel</a></button>
+             
+           </div>
+           
+         </div>
+       </div>
+     
+    </div>
+    {%endfor%}
+
+  </div>
+{% endblock %}

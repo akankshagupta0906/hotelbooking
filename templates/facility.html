@@ -1,0 +1,23 @@
+{% extends "image.html" %}
+
+{% block 'form'%}
+<div class="form-group">
+          
+    <div id="form" style="height: 80vh;"> 
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %} 
+            <div>
+            <input required class="file" style="margin-left: 180px;" type="text" placeholder="add information" name="details1" >
+            <input required class="file" style="margin-left: 180px;" type="text" placeholder="add information" name="details2">
+            <input required class="file" style="margin-left: 180px;" type="text" placeholder="add information" name="details3" >
+            <input required class="file" style="margin-left: 180px;" type="text" placeholder="add information" name="details4">
+            <input required class="file" style="margin-left: 180px;" type="text" placeholder="add information" name="details5">
+            <input class="file2"  type="submit" value="ADD">    `
+            </div>
+            
+               
+        </form> 
+    </div>
+
+</div>
+{% endblock %}

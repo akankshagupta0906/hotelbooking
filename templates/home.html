@@ -1,0 +1,446 @@
+{% load staticfiles%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Hotel booking</title>
+    <script>
+      $(document).ready(function(){
+          $("#myModal").modal('show');
+      });
+  </script>
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+        
+      }
+      header{
+        width: 100%;
+        height: 100vh;
+        background: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.1)),url("{%static 'cars.jpg' %}") no-repeat;
+        background-size:100%;
+
+      }
+      nav{
+        width: 100%;
+        height:15vh;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-transform: uppercase;
+      }
+      .logo{
+        width: 25%;
+        text-align: center;
+      }
+      .menu{
+        width: 40%;
+        display: flex;
+        justify-content: space-around;
+      }
+      .menu a{
+        text-decoration: none;
+        color: white;
+        font-weight:bolder;
+      }
+      .menu a:hover{
+        color: rgb(166, 166, 197);
+        transform:scale(1.4);
+      }
+      main{
+        width: 100%;
+        height: 85vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color:white;
+      }
+      section{
+
+      }
+      section h3{
+        font-size: 35px;
+        font-weight: 200;
+        letter-spacing: 3px;
+        text-shadow: 1px 1px 2px black;
+      }
+      section h1{
+        margin: 30px 0 20px 0;
+        font-size: 55px;
+        font-weight: 700;
+        text-shadow: 2px 1px 5px black;
+        text-transform: uppercase;
+      }
+      section p{
+        font-size: 25px;
+        word-spacing: 2px;
+        text-shadow: 1px 1px 1px black;
+        margin: 25px;
+      }
+      .booking_details{
+        padding: 12px 30px;
+        border-radius: 15px;
+        text-transform: uppercase;
+        font-size: 20px;
+        font-weight: 800;
+        letter-spacing: 1px;
+        color: white;
+        height: 30%;
+        width: 100%;
+        position:relative;
+        z-index: 2;
+        box-sizing: 1px 1px 20px 0px rgba(50 ,50 ,50 ,.3);
+        justify-content: space-between;
+        align-items: center;
+        box-sizing: border-box;
+        
+       
+      }
+      .item{
+        font-size: 15px;
+        padding: 0 10px 0 20px;
+        box-sizing: border-box;
+        text-align: center;
+        color:white;
+        margin-bottom: 20px ;
+      }
+      .one{
+        border: 2px solid white;
+        height: 30px;
+        width: 200px;
+        border-radius: 40px;
+        padding: 0px 10px;
+        background: none;
+        box-decoration-break: clone;
+
+      }
+      
+      .two{
+        border:1px solid white;
+        height: 30px;
+        width: 150px;
+        border-radius: 30px;
+        padding: 0px 10px;
+        background: none;
+        color: black;
+      }
+      .three{
+        border:1px solid white;
+        height: 30px;
+        width: 150px;
+        border-radius: 30px;
+        padding: 0px 10px;
+        background: rgb(206, 148, 41);
+        color:black;
+
+      }
+      .three:hover{
+        color:paleturquoise;
+        transform: scale(1.4);
+        background-color: red;
+      }
+      .fa{
+        margin-left:10px;
+        color:black;
+        font-size: 18px;
+        padding: 0;
+        box-sizing: content-box;
+
+      }
+      
+      .four{
+            border:none;
+            outline: none;
+            background:none;
+            color: black;
+            font-size: 18px;
+            width: 80%;
+            margin: 10px;   
+            }
+      h6{
+        display: inline-flex;
+        color:black;
+      }
+      .five{
+        padding:5px;
+        color: black;
+        display: inline-flex;
+        margin: 5px;
+      }
+      .six{
+        padding:5px;
+        margin: 5px;
+        height: 75px;
+        width: 75px;
+        position: relative;
+        border: 5px solid black;
+        border-radius: 50%;
+        overflow: hidden;
+        }
+        .six::-webkit-file-upload-button{
+          visibility: hidden;
+        }
+        .six::before{
+          content:'\f879';
+          font-family:fontAwesome;
+          font-size: 30px;
+          color:black;
+          margin-left: 10px;
+          
+        }
+    
+      .change_contain:after{
+        content: '';
+        animation: changetext 15s infinite linear;
+        color:rgb(218, 157, 27);
+        
+
+      }
+      @keyframes changetext{
+        0%{content: "MADHYA PRADESH";}
+        10%{content: "UTTAR PRADESH";}
+        20%{content: "ANDHRA PRADESH";}
+        30%{content: "GUJRAT";}
+        40%{content: "JAIPUR";}
+        50%{content: "KOLKATA";}
+        60%{content: "GOA";}
+        70%{content: "KERALA";}
+        80%{content: "UTTRAKHAND";}
+        90%{content: "HIMARACHAL PRADESH";}
+      }
+      footer{
+        background: rgb(124, 124, 218);
+      }
+      .social{
+        padding: 0;
+      }
+      h4{
+        padding: 15px 0px;
+      }
+      .social li{
+        display: inline-flex;
+        background-color: white;
+        width: 40px;
+        height: 35px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 30px;
+        padding: 0px;
+        margin-left: 10px;
+      }
+      .social li a i{
+        padding-top: 4px;
+        color: #333;
+        transition: .3s;
+        font-size: 25px;
+      }
+      .location{
+        font-size: 18px;
+        margin-left:500px;
+
+      }
+      .cont{
+        color:black;
+        display: inline-flex;
+      }
+      .cont2{
+        color:black;
+      }
+      .cont2::before{
+          content:'\f095';
+          font-family:fontAwesome;
+          font-size: 30px;
+          color:black;
+          margin-left: 10px;
+          
+        }
+      .search{
+        margin-left: 40px;
+        
+      }
+    
+      
+    </style>
+</head>
+<body>
+  <header>
+    {% block 'nav'%}
+    <nav>
+      <div class="logo"><h1 class="animate__animated animate__infinite animate__heartBeat ">HOTEL Booking</h1></div>
+
+      </div>
+      <div class="menu">
+        
+        <a href="#">Home</a>
+        <a href="#" data-toggle="modal" data-target="#contect">Contact</a>
+        
+        <a href="/user/hotel/">Hotel</a>
+        <a href="/user/about/">About us</a>
+      </div>
+    </nav>
+    {% endblock%}
+    {% block 'main'%}
+      <main>
+        <section>
+          <h3>Welcome to india</h3>
+          <h1>Do come & visit   <span class="change_contain"></span></h1>
+          <p>India once is no enough</p>
+          
+          <div>
+            <a href="/login/" class="btn btn-primary ml-2"style="width:200px;">Login</a>
+            <a href="#" class="btn btn-light ml-2"style="width:200px;"data-toggle="modal" data-target="#signup">Signup</a>
+          </div>
+                 
+         <form method="POST" enctype="multipart/form-data">
+           {% csrf_token %}
+         <div class="modal fade" id="signup">
+          <div class="modal-dialog modal-dialog-right modal-sm ">
+              <div class="modal-content">
+                  <div class="modal-header" >
+                      <h1 class=" text-info">Signup</h1>
+                  </div>
+                  <div class="modal-body"style="background:linear-gradient(to bottom,pink,rgb(120, 120, 221),pink);">
+                    <hr>
+                      
+                      <input required class="six" type="file" placeholder="image" name="profile_image"><br>
+                      <i class="fa fa-user" aria-hidden="true"></i>
+                      <input class="four" type="text" placeholder="firstname" name="first_name" required><br/>
+                      <i class="fa fa-user" aria-hidden="true"></i>             
+                      <input class="four" type="text" placeholder="lastname" name="last_name"required><br/>
+                      <i class="fa fa-user" aria-hidden="true"></i>            
+                      <input class="four" type="text" placeholder="username" name="username" required><br/>
+                      <i class="fa fa-lock" aria-hidden="true"></i>
+                      <input class="four" type="password" placeholder="password" name="password"  required><br/>
+                      <i class="fa fa-envelope" aria-hidden="true"></i>
+                      <input class="four" type="email" placeholder="Enter Email" name="email"  required> 
+                      <i class="fa fa-bell" aria-hidden="true"></i>
+                      <input class="four" type="number" placeholder="age" name="age" required><br/>            
+                      <i class="fa fa-home" aria-hidden="true"></i>
+                      <input class="four" type="text" placeholder="address" name="address"  required><br/>
+                      <i class="fa fa-phone" aria-hidden="true"></i>
+                      <input class="four" type="text" placeholder="Mobile" name="mobile"  required><br/>
+                  
+                      <h6>Gender</h6>
+                      <i class="fa fa-male" aria-hidden="true"></i>
+                      <input class="five" type="radio" value="male" name="gender">Male
+                      <i class="fa fa-female" aria-hidden="true"></i>
+                      <input class="five" type="radio" value="female" name="gender">Female</div><br>
+
+                  </hr>
+                  <input class="btn btn-info" type="submit" value="save">
+                  <p class="text-info">By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+                  <div class="modal.footer">
+                    <button class="btn btn-danger align-right" data-dismiss="modal">close</button>
+                </div>
+
+      </div>
+    </form>
+                     
+
+                  
+                </div>
+          </div>
+       </div>
+       <div class="modal fade" id="contect">
+        <div class="modal-dialog modal-dialog-right modal-mm">
+            <div class="modal-content ">
+                <div class="modal-header" >
+                    <h1 class=" text-info">Contect us</h1>
+                </div>
+                <div class="modal-body">
+
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                    <p class="cont">akankshag503@gamil.com</p>
+                    
+                    <h4 class="cont2">+91 7389414403</h4>
+                    
+
+                </div>
+                <div class="modal.footer">
+                    <button class="btn btn-danger align-right" data-dismiss="modal">close</button>
+                </div>
+
+              </div>
+        </div>
+     </div>
+     
+        </section>
+      </main> 
+  </header>
+  <div class="card-group">
+    <div class="card" >
+      <img class="card-img-top" style="width: 100%;height:100%;" src="{%static 'pool (1).jpg'%}" alt="Card image cap">
+      
+    </div>
+    <div class="card">
+      <img class="card-img-top" style="width: 100%;height:100%;" src="{%static 'room.jpg'%}" alt="Card image cap">
+      
+    </div>
+    <div class="card" >
+      <img class="card-img-top" style="background-size: cover;" src="{%static 'pool.jpg' %}" alt="Card image cap">
+      
+    </div>
+  </div>
+  <div class="card-group">
+    <div class="card" >
+      <img class="card-img-top" style="width: 100%;height:100%;" src="{%static 'room2.jpg' %}" alt="Card image cap">
+      
+    </div>
+    <div class="card">
+      <img class="card-img-top" style="width: 100%;height:100%;" src="{%static 'night.jpg' %}" alt="Card image cap">
+      
+    </div>
+    <div class="card" >
+      <img class="card-img-top" style="background-size: cover;" src="{%static 'room3.jpg' %}" alt="Card image cap">
+      
+    </div>
+  </div>
+  {%endblock%}
+  {%block 'footer'%}
+  <footer>
+    <div class= 'mt-5 pt-5 pb-5 footer'>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg5 col-xs-12">
+            <h2>HOTEL</h2>
+            <p class="pr-5 text-white-50">
+            Lorem ipsum dolor sit amet, consectetur <br>
+            adipisicing elit. Voluptatum, eos.
+            </p>
+            <ul class="social">
+              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="#"><i class="fa fa-google"></i></a></li>
+              <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-xs-12 links location">
+            <h4 class="mt-lg-0 mt-sm-4">LOCATION</h4>
+            <p class="fa fa-map-marker">185 39 Service Lane Besides Hotel Amar Vilas, <br>
+              Zone-I, Maharana Pratap Nagar, Bhopal, Madhya Pradesh 462011
+            </p>
+            <p class="fa fa-phone">+91 7509800403</p>
+            <p class="fa fa-envelope-o">hotelbookibg@gmail.com</p>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+  {% endblock %}
+</body>
+</html>

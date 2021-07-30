@@ -1,0 +1,222 @@
+{% load staticfiles%}
+<html>
+    <head>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+      <titel>All managers booking user</titel>
+     <style>
+       img{
+           width: 70%;
+           height: 200px;
+       }
+       .item{
+           border: 1px solid red;
+           margin: 10px;
+       }
+       h2{
+         text-transform: capitalize;
+       }
+       .body{
+         margin-left: 10px;
+       }
+       
+       
+       
+       .text{
+         color: black;
+         text-decoration: none;
+         font-weight: bold;
+       }
+       *{
+        margin: 0;
+        padding: 0;
+        
+      }
+      
+      nav{
+        width: 100%;
+        height:10vh;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-transform: uppercase;
+        background: rgb(233, 159, 23);
+      }
+      .logo{
+        width: 25%;
+        text-align: center;
+      }
+      .menu{
+        width: 40%;
+        display: flex;
+        justify-content: space-around;
+      }
+      .menu a{
+        text-decoration: none;
+        color: white;
+        font-weight:bolder;
+      }
+      .menu a:hover{
+        color: rgb(166, 166, 197);
+        transform:scale(1.4);
+      }
+      
+      .owl{
+        margin-top: 40px;
+        border-top: 1px solid white;
+        border-radius: 20px;
+        box-shadow: 15px 19px 25px black; 
+                  
+      }
+      .had{
+        margin-top: 50px;
+        height: 10vh;
+        text-align: center;
+        border-top: 1px solid white;
+        border-radius: 20px;
+        box-shadow: 15px 19px 25px black; 
+        background: rgb(230, 157, 105);
+        color: cornsilk;
+                  
+
+      }
+      .card{
+        margin: 10px;
+        
+       
+      }
+      
+   </style> 
+   </head>
+    <body>
+      <header>
+        <nav>
+          <div class="logo"><h1 class="animate__animated animate__infinite animate__heartBeat ">HOTEL Booking</h1></div>
+          <div class="menu">
+            <a href="/superuser/home/">Home</a>
+            <a href="/superuser/list_M/" >Manager</a>
+            
+            <a href="/superuser/all_booking/" >Booking</a>
+            <a href="/superuser/all_user/" >User</a>
+          </div>
+        </nav>
+      </header>
+    <div class="container" >
+      <h1 id=one class="had"><u>Managers</u></h1>
+     <div class="owl-carousel owl-theme owl" >
+       
+       {% for i in mobj %}
+       <div class="item">
+           
+           <div class="card-group">
+            <div class="card card">
+              <img class="card-img-top" src="{{i.proimg.url}}">
+              <div class="card-body body">
+                
+                <h2 class="card-text">Name:- {{i.user.first_name}} {{i.user.last_name}} </h2>
+                <h2 class="card-text">Username:- {{j.user.username}}</h2>
+                <h2 class="card-text">Hotel:- {{i.hotel.hotel_name}}</h2>
+                <h3 class="card-text">Email:- {{i.user.email}}</h3>
+                <h3 class="card-text">Mobile:- {{i.mobile}}</h3>
+                <h3 class="card-text">Address:- {{i.address}}</h3>
+
+
+              </div>
+              
+            </div>
+          </div>
+           
+       </div>
+       {% endfor %}
+       
+    </div>
+      <h1 id="two" class="had"><u>Users</u></h1>
+      
+      <div class="owl-carousel owl-theme owl">
+      {% for j in uobj %}
+       <div class="item">
+           
+           <div class="card-group">
+            <div class="card card">
+              <img class="card-img-top" src="{{j.proimg.url}}">
+              <div class="card-body body">
+                
+                <h2 class="card-text">Name:- {{j.user.first_name}} {{j.user.last_name}}</h2>
+                <h2 class="card-text">Username:- {{j.user.username}}</h2>
+                <h2 class="card-text">Email:- {{j.user.email}}</h2>
+                <h3 class="card-text">Mobile:- {{j.mobile}}</h3>
+                <h3 class="card-text">Address:- {{j.address}}</h3>
+              </div>
+              
+            </div>
+          </div>
+        
+       </div> 
+       {% endfor %} 
+     </div>
+     
+     <h1 id="three" class="had"><u>Bookings</u></h1>
+      <div class="owl-carousel owl-theme owl">
+       
+      {% for i in bobj %}
+       <div class="item">
+           
+           <div class="card-group">
+            <div class="card card">
+              
+              <div class="card-body body ">
+                
+                <h2 class="card-text">Booking id:- {{i.booking_id}}</h2>
+                <h2 class="card-text">Name:- {{i.user.user.first_name}} {{i.user.user.last_name}}</h2>
+                <h3 class="card-text">Hotel Name:- {{i.hotel.hotel_name}}</h3>
+                <h3 class="card-text">City:- {{i.city.cityname}}</h3>
+                <h3 class="card-text">Total:- {{i.total_amt}}</h3>
+                <h3 class="card-text">Payment:- Not paid</h3>
+                <h3 class="card-text">Check-in-date:- {{i.start_day}}</h3>
+                <h3 class="card-text">Check-out-date:- {{i.end_day}}</h3>
+                <h3 class="card-text">Rooms:- {{i.roomqty}}</h3>
+                
+              </div>
+              
+            </div>
+          </div>
+        
+       </div>
+       {% endfor %}
+       
+       
+     </div>
+    </div>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+       <script>
+           $(document).ready(function(){
+               $('.owl-carousel').owlCarousel({
+                autoPlay: 3000,
+                items : 3,
+                itemsDesktop : [1199,3],
+                itemsDesktopSmall : [979,3],
+                center: true,
+                
+                loop:true,
+                margin:5,
+                nav:true,
+                responsive:{
+                0:{
+                    items:1
+                },
+                600:{
+                    items:3
+                }
+                
+                }
+            })
+            });
+            
+          </script>
+       
+       
+   </body> 
+    </html>

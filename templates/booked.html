@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
+    <title>Booking information</title>
+    <style>
+        *
+            {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body{
+                background: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.1));
+                font-family: sans-serif;
+            }
+             
+            .logo{
+                width: 25%;
+                text-align: center;
+                margin-left: 20px;
+                color: black;
+            }
+            .manu{
+                  background:rgb(194, 149, 149);
+                  text-align: center;
+                  width: 100%;
+                  height:15vh;
+                  color: white;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    text-transform: uppercase;
+                
+                  
+            }
+            .manu ul{
+                display:inline-flex;
+                list-style: none;
+                color:#fff;
+                margin-left:10%;
+            }
+            .manu ul li{
+                width:120px;
+                padding:10px;
+                margin: 15px;
+            }
+            .manu ul li a{
+                text-decoration: none;
+                color: black;
+                font-weight: bold;
+            }
+            .active, .manu ul li:hover{
+                background:rgb(192, 112, 112);
+                border-radius: 3px;
+            }
+            .manu .fa{
+                margin-right: 8px;
+            }
+            .submanu1{
+                display:none;
+            }
+            .manu ul li:hover .submanu1{
+                display:block;
+                position: absolute;
+                background:rgb(187, 165, 165);
+                margin-top: 15px;
+                margin-left: -15px;
+    
+            }
+            .manu ul li:hover .submanu1 ul{
+                display: block;
+                margin: 10px;
+            }
+            .manu ul li:hover .submanu1 ul li{
+                width: 150px;
+                padding: 10px;
+                border-bottom: 1px solid rgb(85, 70, 70);
+            }
+            .manu ul li:hover .submanu1 ul li:last-child{
+                border-bottom: none;
+            }
+            .manu ul li:hover .submanu1 ul li a:hover{
+                color:white;
+            }
+            
+    
+            }
+            .submanu2{
+                display: none;
+            }
+            .hover:hover .submanu2{
+                display: block;
+                position: absolute;
+                margin-left: 40px;
+                margin-top: 10px;
+                background-color: rgb(112, 97, 97);
+            }
+            .item{
+                border: 1px solid red;
+                margin: 10px;
+                
+                margin-left:100px;
+                width: 80%;
+                background: grey;
+               
+            }
+            h2{
+                text-transform: capitalize;
+            }
+            .body{
+                margin-left: 10px;
+                
+            }
+            .card{
+                margin: 30px; 
+
+                
+            }
+            button{
+                margin-left: 600px;
+                height: 7vh;
+                width: 140px;
+                background: rgb(235, 182, 182);
+                color: black;
+                font-size: 20px;
+                border-top: 1px solid white;
+                border-radius: 20px;
+                box-shadow: 15px 19px 25px black; 
+                        
+            }
+            
+    </style>
+</head>
+
+<body>
+    {% block 'manu'%}
+    <div class="manu"> 
+        <div class="logo"><h1 class="animate__animated animate__infinite animate__heartBeat ">HOTEL Booking</h1></div>
+     
+        <ul>
+            <li class="active"><a href="/manager/home/"><i class="fa fa-home"></i>Home</a></li>
+             <li><a href="/manager/booking/"><i class="fa fa-home">Booking</i></a>
+              
+            
+            
+            </li>
+            
+            <li><a href="/profile/"><i class="fa  fa-users"></i>Profile</a></li>
+      
+            
+            <li><a href="/logout/"><i class="fa fa-power-off"></i>Logout</a></li>
+        </ul>
+      </div>
+      {% endblock %}
+      {% block 'contain'%}
+      
+      <div class='container'>
+        {% for i in bobj %}
+        <div class="item">
+           
+            <div class="card-group">
+             <div class="card card">
+               
+               <div class="card-body body ">
+                 
+                 <h2 class="card-text">Booking id:- {{i.booking_id}}</h2>
+                 <h2 class="card-text">Name:- {{i.user.user.first_name}} {{i.user.user.last_name}}</h2>
+                 <h3 class="card-text">Hotel Name:- {{i.hotel.hotel_name}}</h3>
+                 <h3 class="card-text">City:- {{i.city.cityname}}</h3>
+                 <h3 class="card-text">Total:- {{i.total_amt}}</h3>
+                 <h3 class="card-text">Payment:- Not paid</h3>
+                 <h3 class="card-text">Check-in-date:- {{i.start_day}}</h3>
+                 <h3 class="card-text">Check-out-date:- {{i.end_day}}</h3>
+                 <h3 class="card-text">Rooms:- {{i.roomqty}}</h3>
+                 <h3 class="card-text">Guests:- {{i.guests}}</h3>
+                 <button><a href="{% url 'manager:update' id=i.id %}">Check out</a></button>
+                 
+               </div>
+               
+             </div>
+           </div>
+         
+        </div>
+        {%endfor%}
+
+      </div>
+      {% endblock %}
+</body>
+</html>

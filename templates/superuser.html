@@ -1,0 +1,286 @@
+{% load staticfiles%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <title>Module page</title>
+    <script>
+        $(document).ready(function(){
+            $("#myModal").modal('show');
+        });
+    </script>
+    <style>
+        *
+        {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background: url("{%static 'hote.jpg' %}") no-repeat;
+            background-size:cover; 
+            background-position: center;
+            
+            font-family: sans-serif;
+        }
+        .manu{
+              background:rgb(219, 212, 212);
+              text-align: center;
+              height: 12vh;
+              
+        }
+        .manu ul{
+            display:inline-flex;
+            list-style: none;
+            color:#fff;
+            margin-left:10%;
+        }
+        .manu ul li{
+            width:120px;
+            padding:10px;
+            margin: 15px;
+        }
+        .manu ul li a{
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+           
+        }
+        .active, .manu ul li:hover{
+            background:rgb(190, 164, 164);
+            border-radius: 3px;
+        }
+        .manu .fa{
+            margin-right: 8px;
+        }
+        .submanu1{
+            display:none;
+        }
+        .manu ul li:hover .submanu1{
+            display:block;
+            position: absolute;
+            background:brown;
+            margin-top: 15px;
+            margin-left: -15px;
+
+        }
+        .manu ul li:hover .submanu1 ul{
+            display: block;
+            margin: 10px;
+        }
+        .manu ul li:hover .submanu1 ul li{
+            width: 150px;
+            padding: 10px;
+            border-bottom: 1px solid rgb(155, 136, 136);
+        }
+        .manu ul li:hover .submanu1 ul li:last-child{
+            border-bottom: none;
+        }
+        .manu ul li:hover .submanu1 ul li a:hover{
+            color:white;
+        }
+        
+
+        }
+        .submanu2{
+            display: none;
+        }
+        .hover:hover .submanu2{
+            display: block;
+            position: absolute;
+            margin-left: 40px;
+            margin-top: 10px;
+            background-color: brown;
+        }
+        main{
+        width: 100%;
+        height: 85vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color:white;
+      }
+      section{
+
+      }
+      section h3{
+        font-size: 35px;
+        font-weight: 200;
+        letter-spacing: 3px;
+        text-shadow: 1px 1px 2px black;
+      }
+      section h1{
+        margin: 30px 0 20px 0;
+        font-size: 55px;
+        font-weight: 700;
+        text-shadow: 2px 1px 5px black;
+        text-transform: uppercase;
+      }
+      section p{
+        font-size: 25px;
+        word-spacing: 2px;
+        text-shadow: 1px 1px 1px black;
+        margin: 25px;
+      }
+      #body{
+        background-image: url("{%static 'mod.jpg' %}");
+        background-repeat: no-repeat;
+        background-size: cover;
+        width:100%;
+        height:50vh;
+        opacity:0.8;
+        
+      }
+      h3{
+        padding: 15px 0px;
+        margin-left:110px;
+        color: white;
+      }
+      h1{
+        padding: 15px 0px;
+        margin-left:50px;
+        color: red;
+        text-transform:capitalize;
+        
+      }
+      .change_contain:after{
+        content: '';
+        animation: changetext 15s infinite linear;
+        color:rgb(218, 157, 27);
+        
+
+      }
+      @keyframes changetext{
+        0%{content: "MADHYA PRADESH";}
+        10%{content: "UTTAR PRADESH";}
+        20%{content: "ANDHRA PRADESH";}
+        30%{content: "GUJRAT";}
+        40%{content: "JAIPUR";}
+        50%{content: "KOLKATA";}
+        60%{content: "GOA";}
+        70%{content: "KERALA";}
+        80%{content: "UTTRAKHAND";}
+        90%{content: "HIMARACHAL PRADESH";}
+      }
+      .cont{
+        color:black;
+        display: inline-flex;
+        margin-left: 30px;
+      }
+      .cont::before{
+          content:'\f0e0';
+          font-family:fontAwesome;
+          font-size: 30px;
+          color:black;
+          margin-left: 10px;
+          
+        }
+      .cont2{
+        color:black;
+        margin-left: 30px;
+      }
+      .cont2::before{
+          content:'\f095';
+          font-family:fontAwesome;
+          font-size: 30px;
+          color:black;
+          margin-left: 10px;
+          
+        }
+        #one{
+          display: flex;
+          
+        }
+
+      
+
+
+    </style>
+</head>
+<body>
+  {% block 'manu'%}
+  <div class="manu">  
+    <ul>
+        <li class="active"><a href="#"><i class="fa fa-home"></i>Home</a></li>
+        <li><a href="#" data-toggle="modal" data-target="#contect"><i class="fa fa-phone"></i>Contact</a></li>
+        <li><a href="/superuser/add_hotel/"><i class="fa fa-home"></i>Add hotel</a>
+        
+        </li>
+        <li><a href="/superuser/home/" id="one"><i class="fa fa-user"></i>Information</a>
+            <div class="submanu1">
+                <ul>
+                    <li><a href='/superuser/hoteldel/'>Hotel</a></li>
+                    <li><a href="/superuser/list_M/">Mangers</a></li>
+                    <li><a href="/superuser/all_booking/">Booking</a></li>
+                    <li><a href="/superuser/all_user/">User</a></li>
+                </ul>
+            </div>
+        </li>
+        <li><a href="/profile/"><i class="fa  fa-users"></i>Profile</a></li>
+
+        
+        <li><a href="/logout/"><i class="fa fa-power-off"></i>Logout</a></li>
+    </ul>
+  </div>
+  {% endblock %}
+  <div>
+  <main>
+    <section>
+      <h3>Welcome to india</h3>
+      <h1>Do come & visit   <span class="change_contain"></span></h1>
+      <p>India once is no enough</p>
+    </section>
+  </main>
+</div>
+{% block 'modal'%}
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+         
+            <div class="modal-body"id="body">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h3><u><b>“Atithi Devo Bhava”</b></u> </h3>
+                <h1>Welcome {{user.first_name}}</h1>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block 'mod'%}
+<div class="modal fade" id="contect">
+  <div class="modal-dialog modal-dialog-right modal-mm">
+      <div class="modal-content ">
+          <div class="modal-header" >
+              <h1 class=" text-info">Contect us</h1>
+          </div>
+          <div class="modal-body">
+
+              
+              <h4 class="cont">akankshag503@gamil.com</h4>
+              
+              <h4 class="cont2">+91 7389414403</h4>
+              
+
+          </div>
+          <div class="modal-footer">
+              <button class="btn btn-danger align-right" data-dismiss="modal">close</button>
+          </div>
+
+        </div>
+  </div>
+</div>
+{% endblock %}
+
+
+</body>
+</html>

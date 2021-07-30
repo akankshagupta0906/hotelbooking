@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+  <title>Document</title>
+</head>
+<style>
+  *{
+    margin: 0px;
+    padding: 0px;
+    
+  }
+  .logo{
+        width:100%;
+        text-align:center;
+        height:10vh;
+        text-transform: uppercase;
+        background-color: brown;
+        color: white;
+        margin-top:30px;
+      }
+      .six{
+        padding:5px;
+        margin: 5px;
+        height: 200px;
+        width: 200px;
+        position: relative;
+        border: 5px solid black;
+        border-radius: 50%;
+        overflow: hidden;
+        }
+        .six::-webkit-file-upload-button{
+          visibility: hidden;
+        }
+        .main{
+         
+          margin-top: 50px;
+          margin-left:200px;
+          margin-right: 200px;
+          border-top: 1px solid white;
+          border-radius: 20px;
+          box-shadow: 15px 19px 25px black;  
+        } 
+        .fa{
+        margin-left:10px;
+        color:black;
+        font-size: 18px;
+        padding: 0;
+        box-sizing: content-box;
+
+      }
+      
+      .four{
+            border:none;
+            outline: none;
+            background:none;
+            color: black;
+            font-size: 18px;
+            width: 80%;
+            margin: 10px;   
+            }
+      h6{
+        display: inline-flex;
+        color:black;
+      }
+      .five{
+        padding:5px;
+        color: black;
+        display: inline-flex;
+        margin: 5px;
+      }
+        
+        
+        
+        
+        
+    
+</style>
+<body>
+  <div class="contanire">
+    <div>
+     <header>
+       <nav>
+        <div class="logo"><h1 class="animate__animated animate__infinite animate__heartBeat "> WELCOME {{obj.user.first_name}}</h1></div>
+        
+      </nav>
+     </header>
+          <main class="main">         
+            
+            <table class="table table-borderless table-secondary">
+              <tbody>
+              <tr>
+                <a href="#">
+                  <td><img src="{{obj.proimg.url}}" class="six"></td>
+                </a>
+              </tr>
+                <tr>
+                  <th scope="row">Name</th>
+                  <td>{{obj.user.first_name}} {{obj.user.last_name}}</td>
+                  
+                </tr>
+                <tr>
+                  <th scope="row">Username</th>
+                  <td>{{obj.user.username}}</td>
+                  
+                </tr>
+                <tr>
+                  <th scope="row">Email</th>
+                  <td colspan="2">{{obj.user.email}}</td>
+                  
+                </tr>
+                <tr>
+                  <th scope="row">Mobile</th>
+                  <td colspan="2">{{obj.mobile}}</td>
+                  
+                </tr>
+                <tr>
+                  <th scope="row">Address</th>
+                  <td colspan="2">{{obj.address}}</td>
+                  
+                </tr>
+                <tr>
+                  <td><a href="/HotelBooking/profile_update/"></a><button class="btn btn-warning"data-toggle="modal" data-target="#edit"><i class="fa fa-pencil"></i>Edit</button></a></td>
+                </tr>
+                
+              </tbody>
+             
+            </table>
+          </main>
+    </div>  
+
+  </div>
+  
+  <div class="modal fade" id="edit">
+   <div class="modal-dialog modal-dialog-right modal-sm ">
+       <div class="modal-content">
+           <div class="modal-header" >
+               <h1 class=" text-info">PROFILE</h1>
+           </div>
+           <div class="modal-body"style="background:linear-gradient(to bottom,pink,rgb(120, 120, 221),pink);">
+             <hr>
+             <form method="POST">
+               {% csrf_token %}
+                <div class="six">
+                <a><img src="{{obj.proimg.url}}" style="height:180px;width: 180px;border-radius:50%; overflow:hidden;"></a>
+                </div>
+               <i class="fa fa-user" aria-hidden="true"></i>
+               <input class="four" type="text" value="{{obj.user.first_name}}" placeholder="firstname" name="fname" required><br/>
+               <i class="fa fa-user" aria-hidden="true"></i>             
+               <input class="four" type="text"value="{{obj.user.last_name}}" placeholder="lastname" name="lname"required><br/>
+               <i class="fa fa-user" aria-hidden="true"></i>            
+               <input class="four" type="text" value="{{obj.user.username}}" placeholder="username" name="username" required><br/>
+               <i class="fa fa-envelope" aria-hidden="true"></i>
+               <input class="four" type="email" value="{{obj.user.email}}" placeholder="Enter Email" name="email"  required> 
+                           
+               <i class="fa fa-home" aria-hidden="true"></i>
+               <input class="four"  type="text" value="{{obj.address}}"  placeholder="address" name="address"  required><br/>
+               <i class="fa fa-phone" aria-hidden="true"></i>
+               <input class="four" type="text" value="{{obj.mobile}}" placeholder="Mobile" name="mobile"  required><br/>
+              
+           </hr>
+           <input class="btn btn-info" type="submit" value="update">
+          </form>
+           <p class="text-info">By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+           <div class="modal.footer">
+             <button class="btn btn-danger align-right" data-dismiss="modal">close</button>
+         </div>
+
+</div>
+
+  
+    
+  
+  
+  
+</body>
+</html>

@@ -1,0 +1,40 @@
+{% extends 'image.html'%}
+{% block 'nav'%}
+            <nav>
+                <div class="logo"><h1 class="animate__animated animate__infinite animate__heartBeat ">HOTEL Booking</h1></div>
+                <div class="menu">
+                  <a href="/user/home/">Home</a>
+                  <a href="/user/all_booking/">Booking</a>
+                  <a href="/user/hotel/">Hotel</a>
+                  <a href="logout">Logout</a>
+                </div>
+              </nav>
+              {% endblock %}
+
+{% block 'form'%}
+<div class="form-group">
+           
+    <div id="form">
+        <h2 style="margin-left: 150px; margin-top: 10px; color: white;">FILL INFORMATION</h2> 
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %} 
+            <div>
+            <input class="file" required max="{{hobj.total_rooms}}" min='0' type="number" placeholder="no. of room" name="room"style="margin-left: 170px;width:35%">
+            
+            <input class="file" required  type="number" placeholder="1 room 2 guests" name="guests" style="margin-left: 170px;width:35%">
+            <input class="file" placeholder="check in date" type="text" id="datepicker" style="margin-left: 170px; " name="start_day">
+            <input class="file" placeholder="check out date" required type="text" id="datepickers" name="end_day" style="margin-left: 170px;">
+
+            <a href="/user/book/"><input class="file2" type="submit" value="ADD" data-toggle="modal" data-target="#slip" style="margin-left: 200px"></a>    `
+            </div>
+            
+               
+        </form> 
+    </div>
+
+</div>
+
+ 
+
+ 
+{% endblock%}

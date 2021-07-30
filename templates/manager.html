@@ -1,0 +1,45 @@
+{% extends 'superuser.html'%}
+
+{% block 'manu'%}
+<div class="manu">  
+  <ul>
+      <li class="active"><a href="#"><i class="fa fa-home"></i>Home</a></li>
+       <li><a href="/manager/booking/"><i class="fa fa-home">Booking</i></a>
+        
+      
+      
+      </li>
+      <li><a href="#"><i class="fa fa-plus"></i>Add</a>
+          <div class="submanu1">
+              <ul>
+                  <li><a href="/manager/image/">images</a></li>
+                  <li><a href="/manager/link/">360 Images </a></li>
+                  <li><a href="/manager/fac/">Facility</a></li>
+                  
+              </ul>
+          </div>
+      </li>
+      <li><a href="/profile/"><i class="fa  fa-users"></i>Profile</a></li>
+
+      
+      <li><a href="/logout/"><i class="fa fa-power-off"></i>Logout</a></li>
+  </ul>
+</div>
+
+          
+{% endblock %}
+{% block 'modal'%}
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+         
+            <div class="modal-body"id="body">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h3><u><b>“Atithi Devo Bhava”</b></u> </h3>
+                <h1>Welcome {{hotel}}</h1>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
