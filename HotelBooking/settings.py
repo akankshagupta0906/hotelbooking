@@ -28,7 +28,7 @@ SECRET_KEY = '(8f=un8*w^uhoi!iints152_o=t&w6n7p#)p+4fta8hoyp!z^)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['hotelbookingoyo.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1','hotelbookingoyo.herokuapp.com']
 
 
 # Application definition
